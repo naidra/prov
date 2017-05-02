@@ -1,0 +1,315 @@
+<html>
+   <head>
+      <title>Foto</title>
+      <meta charset="utf-8">
+      <meta name="theme-color" content="#82B75B">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <style type="text/css">
+         * {
+            padding:0px;
+            margin:0px;
+         }
+         @font-face {
+            font-family:Archer;
+            src: url(fonts/Archer-Light-Pro.otf);
+         }
+         body {
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            font-family:Archer;
+            overflow-y:scroll;
+         }
+         form {
+            width:300px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            padding-top:10px;
+            position:relative;
+         }
+         body > div:nth-of-type(1) {
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+         }
+         body > div:nth-of-type(1) > div {
+            align-self:center;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+         }
+         body > div:nth-of-type(1) > div input[type="search"] {
+            font-size:20px;
+            color:#fcfcfe;
+            padding:10px;
+            border:0;
+            outline:0;
+            border-radius:3px;
+            width:240px;
+            background:#07B33C;
+            z-index:1;
+         }
+         body > div:nth-of-type(1) > div > div {
+            position:relative;
+            margin-top:10px;
+            filter: url("#shadowed-goo");
+            padding:0px 50px 50px;
+         }
+         body > div:nth-of-type(1) > div > div > label {
+            position:absolute;
+            background:#07B33C;
+            width:45px;
+            height:45px;
+            top:0px;
+            right:50px;
+            border-radius:50%;
+            z-index:-1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            transition:transform 0.3s ease-in;
+         }
+         body > div:nth-of-type(1) > div > div > input:focus + label {
+            transform:translate3d(30px,30px,0) rotateZ(90deg);
+         }
+         body > div:nth-of-type(1) > div > div > input.dirty + label {
+            transform:translate3d(30px,30px,0) rotateZ(90deg);
+         }
+         form > input {
+            font-size:20px;
+            margin-top:10px;
+            border:0;
+            outline:0;
+            color:rgb(7,179,60);
+         }
+         form > input[type="file"] {
+            width:0px;
+            height:0px;
+            overflow:hidden;
+            position:absolute;
+            top:0px;
+            left:0px;
+         }
+         form > label {
+            font-size:20px;
+            margin-top:10px;
+            color:rgb(7,179,60);
+            border:1px solid #07B33C;
+            padding:5px 20px;
+            font-family:Archer;
+         }
+         form > input[type="submit"] {
+            margin-top:30px;
+            border:1px solid #07B33C;
+            padding:4px 30px;
+            background:rgba(7,179,60,0.5);
+            color:#fcfcfe;
+            border-radius:50px;
+         }
+         h2 {
+            color:#61B515;
+            font-family:Archer;
+            margin-top:40px;
+         }
+         body h2 {
+         }
+         body > div:nth-of-type(1) {
+            width:100%;
+            max-width:900px;
+            display:flex;
+            align-items:center;
+         }
+         body > div:nth-of-type(2) {
+            width:100%;
+            margin-top:10px;
+            max-width:900px;
+            padding:20px;
+            box-sizing:border-box;
+            display:grid;
+            grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
+            grid-gap:20px;
+            grid-auto-flow:dense;
+         }
+         body > div:nth-of-type(2) > div {
+            box-sizing:border-box;
+            display:flex;
+            flex-direction:column;
+            border-bottom:3px solid var(--color);
+            position:relative;
+         }
+         body > div:nth-of-type(2) > div::after {
+            content:'';
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:100%;
+            height:100%;
+            background:var(--color);
+            z-index:-1;
+            opacity:0.3;
+         }
+         body > div:nth-of-type(2) > div > img {
+            max-width:95%;
+            max-height:100px;
+            align-self:flex-start;
+         }
+         body > div:nth-of-type(2) > div > p {
+            width:100%;
+            padding:0px 5px;
+            box-sizing:border-box;
+            position:relative;
+         }
+         body > div:nth-of-type(2) > div > p:nth-of-type(1) {
+            padding-top:7px;
+         }
+         body > div:nth-of-type(2) > div > p:nth-last-of-type(1) {
+            padding-bottom:7px;
+         }
+         body > div:nth-of-type(2) > div > p:nth-of-type(1)::before {
+            content:'';
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:100%;
+            height:3px;
+            background:var(--color);
+         }
+         .longOne {
+            grid-column-end:span 2;
+         }
+         svg {
+            width:0px;
+            height:0px;
+            overflow:hidden;
+         }
+         ::-webkit-input-placeholder { /* Chrome */
+           color:#fcfcfe;
+         }
+         :-ms-input-placeholder { /* IE 10+ */
+           color:#fcfcfe;
+         }
+         ::-moz-placeholder { /* Firefox 19+ */
+           color:#fcfcfe;
+           opacity: 1;
+         }
+         :-moz-placeholder { /* Firefox 4 - 18 */
+           color:#fcfcfe;
+           opacity: 1;
+         }
+         @media (max-width: 649px) {
+            body > div:nth-of-type(1) {
+               flex-direction:column;
+            }
+            body > div:nth-of-type(1) {
+               width:300px;
+            }
+            body > div:nth-of-type(1) > div {
+               padding-bottom:0px;
+            }
+            .longOne {
+               grid-column-end:span 1;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- filters -->
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="shadowed-goo">
+                
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+                <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+                <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+                <feBlend in2="shadow" in="goo" result="goo" />
+                <feBlend in2="goo" in="SourceGraphic" result="mix" />
+            </filter>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                <feBlend in2="goo" in="SourceGraphic" result="mix" />
+            </filter>
+          </defs>
+      </svg>
+      <div>
+         <form action="" method="POST">
+            <h2>Upload photos here</h2>
+            <input type="file" name="image" id="file" />
+            <label for="file">Choose a file</label>
+            <input type="submit" value="Submit" />
+         </form>
+         <div>
+            <h2>Search uploaded photos here</h2>
+            <div><input type="search" name="search" placeholder="Type"><label>➷</label></div>
+         </div>
+      </div>
+      <div class="output"></div>
+      <script type="text/javascript">
+      (function() {
+         let json,
+            filtered;
+         const httpRequest = new XMLHttpRequest();
+         httpRequest.open('GET', "http://fr33.ezyro.com/provKjo2.php");
+         httpRequest.onreadystatechange = function (data) {
+            if (httpRequest.status == "200" && httpRequest.readyState == "4") {
+               json = JSON.parse(httpRequest.responseText);
+            }
+         }
+         httpRequest.send();
+
+         const file = document.querySelector('form > input[type="file"]'),
+               form = file.parentNode,
+               label = file.parentNode.querySelector('label'),
+               search = document.querySelector('body > div:nth-of-type(1) > div > div > input[type="search"]'),
+               output = document.querySelector('body > .output');
+
+         function show() {
+            const fixed = file.value.split('\\').pop();
+            label.innerText = fixed;
+         }
+
+         function sendEm(e) {
+            e.preventDefault();
+            if (file.value.length === 0) return;
+            const dat = new FormData(form);
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.open('POST', "nowIn.php");
+            httpRequest.onreadystatechange = function (data) {
+               if (httpRequest.status == "200" && httpRequest.readyState == "4") {
+                 location.reload();
+               }
+            }
+            httpRequest.send(dat);
+         }
+
+         function results() {
+            const regex = new RegExp(this.value, 'gi');
+            filtered = json.filter(match => {
+               return match.id.match(regex) || match.emri.match(regex);
+            });
+            filtered.length === 0 ? this.className = '' : this.className = 'dirty';
+
+            const html = filtered.map(el => {
+               const col = ['#F87356', '#F1541F', '#345DBC', '#2D4E6B', '#3AC033', '#AA364E', '#1257F7'][Math.floor(Math.random()*7)];
+               return `<div style="--color:${col}"><img src="http://fr33.ezyro.com/${el.path}">
+                 <p>Id: ${el.id}</p>
+                 <p>Emri: ${el.emri}</p>
+                 <p>Madhesia: ${el.size}byte</p>
+                 <p>Koha: ${el.date}</p></div>`;
+              }).join('');
+            output.innerHTML = html;
+            const random = Math.floor(Math.random() * filtered.length);
+            if(filtered.length > 0) output.children[random].className = 'longOne';
+         }
+
+         file.addEventListener('change', show);
+         form.addEventListener('submit', sendEm);
+         ['keyup', 'change'].forEach(event => search.addEventListener(event, results));
+      }());
+      </script>
+   </body>
+</html>
