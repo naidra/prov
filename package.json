@@ -1,6 +1,23 @@
-{ 
-	"name" : "foo",
-	"version" : "6.9.5",
-	"description" : "A packaged foo fooer for fooing foos",
-	"main" : "index.js"
+{
+  "name": "nod",
+  "version": "1.0.0",
+  "description": "Ardian page",
+  "main": "index.js",
+  "scripts": {
+    "test": "running noW"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naidra/prov.git"
+  },
+  "keywords": [
+    "nod",
+    "website"
+  ],
+  "author": "ardian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naidra/prov/issues"
+  },
+  "homepage": "https://github.com/naidra/prov#readme"
 }
