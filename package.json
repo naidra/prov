@@ -1,8 +1,6 @@
-{
-  "name": "myapp",
-  "description": "a really cool app",
-  "version": "0.0.1",
-  "engines": {
-    "npm": "2.1.x"
-  }
+{ 
+	"name" : "foo",
+	"version" : "6.9.5",
+	"description" : "A packaged foo fooer for fooing foos",
+	"main" : "index.js"
 }
